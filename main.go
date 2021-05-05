@@ -19,10 +19,9 @@ var (
 
 func main() {
 	data := getStatus()
-	fmt.Println(data.Status.statusEmoji() + " | image=" + ICON + " | color=" + data.Status.statusColor())
-	fmt.Println("---")
-	fmt.Println(data.Status.Description + " | href=" + data.Page.Url)
-	fmt.Println("Last updated: " + data.Page.lastUpdatedAt())
+	showTopInfo(data.Status)
+	showStatus(data)
+	showLastUpdate(data.Page)
 }
 
 type GitHubStatus struct {
@@ -87,4 +86,17 @@ func getStatus() GitHubStatus {
 		log.Fatal(err)
 	}
 	return data
+}
+
+func showTopInfo(status Status) {
+	fmt.Println(status.statusEmoji() + " | image=" + ICON + " | color=" + status.statusColor())
+	fmt.Println("---")
+}
+
+func showStatus(data GitHubStatus) {
+	fmt.Println(data.Status.Description + " | href=" + data.Page.Url)
+}
+
+func showLastUpdate(page Page) {
+	fmt.Println("Last updated: " + page.lastUpdatedAt())
 }
