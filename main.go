@@ -18,6 +18,8 @@ var (
 
 func main() {
 	data := getStatus()
+	fmt.Println(data.Status.statusEmoji())
+	fmt.Println("---")
 	fmt.Println(data)
 	fmt.Println(data.Page.lastUpdatedAt())
 }
@@ -43,6 +45,19 @@ func (page *Page) lastUpdatedAt() string {
 type Status struct {
 	Indicator   string `json:"indicator"`
 	Description string `json:"description"`
+}
+
+func (status *Status) statusEmoji() string {
+	switch status.Description {
+	case "All Systems Operational":
+		return "✓"
+	case "Partial System Outage":
+		return "!"
+	case "Major Service Outage":
+		return "✗"
+	default:
+		return "?"
+	}
 }
 
 func getStatus() GitHubStatus {
