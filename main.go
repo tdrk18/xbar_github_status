@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 )
 
 const (
@@ -22,11 +23,11 @@ type GitHubStatus struct {
 }
 
 type Page struct {
-	Id        string `json:"id"`
-	Name      string `json:"name"`
-	Url       string `json:"url"`
-	Timezone  string `json:"time_zone"`
-	UpdatedAt string `json:"updated_at"`
+	Id        string    `json:"id"`
+	Name      string    `json:"name"`
+	Url       string    `json:"url"`
+	Timezone  string    `json:"time_zone"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 type Status struct {
