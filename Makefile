@@ -19,4 +19,4 @@ archive:
 
 .PHONY: clean
 clean:
-	rm -rf bin
+	rm -rf bin artifacts.zip
