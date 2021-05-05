@@ -20,12 +20,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Build
+      - name: Build and Archive
         run: |
-          make build
+          make xbuild
+          make archive
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: xbar_github_status.5m.cgo
-          path: ./bin/xbar_github_status.5m.cgo
+          name: artifacts.zip
+          path: ./artifacts.zip
