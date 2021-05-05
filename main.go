@@ -18,7 +18,7 @@ var (
 
 func main() {
 	data := getStatus()
-	fmt.Println(data.Status.statusEmoji())
+	fmt.Println(data.Status.statusEmoji() + " | color=" + data.Status.statusColor())
 	fmt.Println("---")
 	fmt.Println(data)
 	fmt.Println(data.Page.lastUpdatedAt())
@@ -57,6 +57,19 @@ func (status *Status) statusEmoji() string {
 		return "✗"
 	default:
 		return "?"
+	}
+}
+
+func (status *Status) statusColor() string {
+	switch status.Description {
+	case "All Systems Operational":
+		return "green"
+	case "Partial System Outage":
+		return "yellow"
+	case "Major Service Outage":
+		return "red"
+	default:
+		return "white"
 	}
 }
 
