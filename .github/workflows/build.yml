@@ -26,7 +26,7 @@ jobs:
           make archive
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
-          name: artifacts.zip
+          name: artifacts
           path: ./artifacts.zip
