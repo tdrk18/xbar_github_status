@@ -38,7 +38,7 @@ type Page struct {
 }
 
 func (page *Page) lastUpdatedAt() string {
-	layout := "2006/01/02 15:04:05"
+	layout := "2006/01/02(Mon) 15:04:05"
 	return page.UpdatedAt.In(JST).Format(layout)
 }
 
