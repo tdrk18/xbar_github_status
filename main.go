@@ -21,7 +21,7 @@ func main() {
 	data := getStatus()
 	fmt.Println(data.Status.statusEmoji() + " | image=" + ICON + " | color=" + data.Status.statusColor())
 	fmt.Println("---")
-	fmt.Println(data)
+	fmt.Println(data.Status.Description)
 	fmt.Println(data.Page.lastUpdatedAt())
 }
 
