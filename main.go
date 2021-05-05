@@ -12,9 +12,14 @@ const (
 	ENDPOINT = "https://kctbh9vrtdwd.statuspage.io/api/v2/status.json"
 )
 
+var (
+	JST = time.FixedZone("Asia/Tokyo", 9*60*60)
+)
+
 func main() {
 	data := getStatus()
 	fmt.Println(data)
+	fmt.Println(data.Page.lastUpdatedAt())
 }
 
 type GitHubStatus struct {
@@ -28,6 +33,11 @@ type Page struct {
 	Url       string    `json:"url"`
 	Timezone  string    `json:"time_zone"`
 	UpdatedAt time.Time `json:"updated_at"`
+}
+
+func (page *Page) lastUpdatedAt() string {
+	layout := "2006/01/02 15:04:05"
+	return page.UpdatedAt.In(JST).Format(layout)
 }
 
 type Status struct {
