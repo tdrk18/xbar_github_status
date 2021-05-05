@@ -7,9 +7,9 @@ build:
 
 .PHONY: xbuild
 xbuild:
-	export GOOS=darwin; export GOARCH=amd64; export CGO_ENABLED=0; go build -o bin/$$GOOS/$(APPNAME) -v .; chmod +x bin/$$GOOS/$(APPNAME)
-	export GOOS=linux; export GOARCH=amd64; export CGO_ENABLED=0; go build -o bin/$$GOOS/$(APPNAME) -v .; chmod +x bin/$$GOOS/$(APPNAME)
-	export GOOS=windows; export GOARCH=amd64; export CGO_ENABLED=0; go build -o bin/$$GOOS/$(APPNAME) -v .; chmod +x bin/$$GOOS/$(APPNAME)
+	export GOOS=darwin; export GOARCH=amd64; export CGO_ENABLED=0; go build -o bin/$$GOOS/$(APPNAME) .; chmod +x bin/$$GOOS/$(APPNAME)
+	export GOOS=linux; export GOARCH=amd64; export CGO_ENABLED=0; go build -o bin/$$GOOS/$(APPNAME) .; chmod +x bin/$$GOOS/$(APPNAME)
+	export GOOS=windows; export GOARCH=amd64; export CGO_ENABLED=0; go build -o bin/$$GOOS/$(APPNAME) .; chmod +x bin/$$GOOS/$(APPNAME)
 
 .PHONY: archive
 archive:
