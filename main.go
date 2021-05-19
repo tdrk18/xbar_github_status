@@ -51,7 +51,7 @@ func (status *Status) statusEmoji() string {
 	switch status.Description {
 	case "All Systems Operational":
 		return "✓"
-	case "Partial System Outage", "Service Under Maintenance":
+	case "Minor Service Outage", "Partial System Outage", "Service Under Maintenance":
 		return "!"
 	case "Major Service Outage":
 		return "✗"
@@ -64,7 +64,7 @@ func (status *Status) statusColor() string {
 	switch status.Description {
 	case "All Systems Operational":
 		return "green"
-	case "Partial System Outage", "Service Under Maintenance":
+	case "Minor Service Outage", "Partial System Outage", "Service Under Maintenance":
 		return "yellow"
 	case "Major Service Outage":
 		return "red"
