@@ -11,6 +11,10 @@ xbuild:
 	export GOOS=linux; export GOARCH=amd64; export CGO_ENABLED=0; go build -o bin/$$GOOS/$(APPNAME) .; chmod +x bin/$$GOOS/$(APPNAME)
 	export GOOS=windows; export GOARCH=amd64; export CGO_ENABLED=0; go build -o bin/$$GOOS/$(APPNAME) .; chmod +x bin/$$GOOS/$(APPNAME)
 
+.PHONY: test
+test:
+	go test ./... -v
+
 .PHONY: archive
 archive:
 	@if [ -e bin ]; then \
