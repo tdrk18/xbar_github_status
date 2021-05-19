@@ -1,12 +1,12 @@
-name: Build
+name: Test
 on:
-  push:
+  pull_request:
     branches:
       - '**'
 
 jobs:
   build:
-    name: Build
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.15.8
@@ -17,13 +17,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Build and Archive
+      - name: Test
         run: |
-          make xbuild
-          make archive
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifacts
-          path: ./artifacts.zip
+          make test
