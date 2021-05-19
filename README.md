@@ -9,3 +9,5 @@
     - Create an executable binary in the `bin` directory
 - `make clean`
     - Remove the `bin` directory
+- `make test`
+    - Run tests
